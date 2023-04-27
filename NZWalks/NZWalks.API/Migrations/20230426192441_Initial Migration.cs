@@ -46,6 +46,7 @@ namespace NZWalks.API.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LengthInKn = table.Column<double>(type: "float", nullable: false),
                     WalkImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+
                     DifficultyId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     RegionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
