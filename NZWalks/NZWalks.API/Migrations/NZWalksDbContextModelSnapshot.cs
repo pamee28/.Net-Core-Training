@@ -35,6 +35,52 @@ namespace NZWalks.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Difficulties");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("76cc25cc-6b80-4f81-9926-6437aa0334e1"),
+                            Name = "Easy"
+                        },
+                        new
+                        {
+                            Id = new Guid("98179c79-5a8f-4cdb-ace1-19cb5bf3ba82"),
+                            Name = "Medium"
+                        },
+                        new
+                        {
+                            Id = new Guid("c01d63d2-0882-4710-b0c9-882161c94596"),
+                            Name = "Hard"
+                        });
+                });
+
+            modelBuilder.Entity("NZWalks.API.Models.Domain.Image", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("FileDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FileExtension")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FilePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("FileSizeBytes")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Images");
                 });
 
             modelBuilder.Entity("NZWalks.API.Models.Domain.Region", b =>
@@ -57,6 +103,47 @@ namespace NZWalks.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Regions");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("de6c0596-656a-4c3a-9b0a-cc587170ff07"),
+                            Code = "AKL",
+                            Name = "Auckland",
+                            RegionImageUrl = "Aukland-image.png"
+                        },
+                        new
+                        {
+                            Id = new Guid("6884f7d7-ad1f-4101-8df3-7a6fa7387d81"),
+                            Code = "NTL",
+                            Name = "Northland"
+                        },
+                        new
+                        {
+                            Id = new Guid("14ceba71-4b51-4777-9b17-46602cf66153"),
+                            Code = "BOP",
+                            Name = "Bay Of Plenty"
+                        },
+                        new
+                        {
+                            Id = new Guid("cfa06ed2-bf65-4b65-93ed-c9d286ddb0de"),
+                            Code = "WGN",
+                            Name = "Wellington",
+                            RegionImageUrl = "https://images.pexels.com/photos/4350631/pexels-photo-4350631.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        },
+                        new
+                        {
+                            Id = new Guid("906cb139-415a-4bbb-a174-1a1faf9fb1f6"),
+                            Code = "NSN",
+                            Name = "Nelson",
+                            RegionImageUrl = "https://images.pexels.com/photos/13918194/pexels-photo-13918194.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        },
+                        new
+                        {
+                            Id = new Guid("f077a22e-4248-4bf6-b564-c7cf4e250263"),
+                            Code = "STL",
+                            Name = "Southland"
+                        });
                 });
 
             modelBuilder.Entity("NZWalks.API.Models.Domain.Walk", b =>

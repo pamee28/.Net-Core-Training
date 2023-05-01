@@ -44,6 +44,11 @@ namespace NZWalks.API.Repositories
           return await dbContext.Regions.FirstOrDefaultAsync(x => x.Id == id);
         }
 
+        public Task GetByIdAsync(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<Region?> UpdateAsync( Guid id, Region region)
         {
             var existingRegion = await dbContext.Regions.FirstOrDefaultAsync(x => x.Id == id);
